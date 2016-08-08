@@ -1,4 +1,6 @@
 class SensorDataController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:uplink]
+
   def index
     @sensor_data = SensorDatum.all
   end
@@ -21,6 +23,18 @@ class SensorDataController < ApplicationController
 
     @datum.destroy
     redirect_to sensor_data_path, notice: 'Sensor datum destroyed!'
+  end
+
+  def uplink
+    payload = Hash.from_xml(request.raw_post)["DevEUI_uplink"]["payload_hex"]
+    @datum = SensorDatum.new(
+      dev_eui: params[:LrnDevEui], port: params[:LrnFPort],
+      info: params[:LrnInfos], payload: payload)
+    @datum.save
+    
+    respond_to do |format|
+      format.xml { render xml: "OK" }
+    end
   end
 
   private
