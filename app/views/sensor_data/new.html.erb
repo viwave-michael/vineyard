@@ -1,0 +1,15 @@
+<%= form_for SensorDatum.new do |f| %>
+  <%= f.label :dev_eui %>
+  <%= f.text_field :dev_eui %>
+
+  <%= f.label :port %>
+  <%= f.number_field :port %>
+
+  <%= f.label :info %>
+  <%= f.text_field :info %>
+
+  <%= f.label :payload %>
+  <%= f.text_field :payload %>
+
+  <%= f.submit "Create" %>
+<% end %>

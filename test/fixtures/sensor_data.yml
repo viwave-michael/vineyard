@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dev_eui: MyString
+  port: 1
+  info: MyString
+  payload: MyString
+
+two:
+  dev_eui: MyString
+  port: 1
+  info: MyString
+  payload: MyString
