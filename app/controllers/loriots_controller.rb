@@ -23,7 +23,7 @@ class LoriotsController < ApplicationController
         format.json { render json: { "status": "OK" } }
       else
         format.html { render :new }
-        format.json { render json: @loriot.errors.full_messages }
+        format.json { render json: { "errir": @loriot.errors.full_messages } }
       end
     end
   end
