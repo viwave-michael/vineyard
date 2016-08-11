@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>raw_data</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @loriots.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.raw_data %></td>
+      <td><%= link_to "Delete", loriot_path(item), method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<hr>
+<%= link_to "New", new_loriot_path %>

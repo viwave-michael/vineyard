@@ -1,0 +1,2 @@
+module LoriotsHelper
+end
